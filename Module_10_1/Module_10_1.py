@@ -24,20 +24,31 @@ print(f'Работа потоков {time_stop - time_start}')
 
 # async wtite
 time_start = datetime.now()
-thread_first = Thread(target=write_words, args=(10, 'example5.txt'))
-thread_second = Thread(target=write_words, args=(30, 'example6.txt'))
-thread_third = Thread(target=write_words, args=(200, 'example7.txt'))
-thread_fourth = Thread(target=write_words, args=(100, 'example8.txt'))
 
-thread_first.start()
-thread_second.start()
-thread_third.start()
-thread_fourth.start()
+# thread_first = Thread(target=write_words, args=(10, 'example5.txt'))
+# thread_second = Thread(target=write_words, args=(30, 'example6.txt'))
+# thread_third = Thread(target=write_words, args=(200, 'example7.txt'))
+# thread_fourth = Thread(target=write_words, args=(100, 'example8.txt'))
+#
+# thread_first.start()
+# thread_second.start()
+# thread_third.start()
+# thread_fourth.start()
+#
+# thread_first.join()
+# thread_second.join()
+# thread_third.join()
+# thread_fourth.join()
 
-thread_first.join()
-thread_second.join()
-thread_third.join()
-thread_fourth.join()
+threads = []
+threads.append(Thread(target=write_words, args=(10, 'example5.txt')))
+threads.append(Thread(target=write_words, args=(30, 'example6.txt')))
+threads.append(Thread(target=write_words, args=(200, 'example7.txt')))
+threads.append(Thread(target=write_words, args=(100, 'example8.txt')))
+for thread in threads:
+    thread.start()
+for thread in threads:
+    thread.join()
 
 time_stop = datetime.now()
 print(f'Работа потоков {time_stop - time_start}')
