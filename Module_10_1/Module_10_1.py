@@ -2,12 +2,14 @@ from time import sleep
 from datetime import datetime
 from threading import Thread
 
+
 def write_words(word_count, file_name):
     with open(file_name, 'w', encoding='utf-8') as file:
         for i in range(word_count):
             file.write(f'Какое-то слово № {i + 1}\n')
             sleep(0.1)
     print(f'Завершилась запись в файл {file_name}')
+
 
 # sync write
 time_start = datetime.now()
