@@ -37,11 +37,11 @@ class Bank:
                 if self.balance >= withdrawal:
                     self.balance -= withdrawal
                     self.syncprint(f'Снятие: {withdrawal}. Баланс: {self.balance}')
-                    i += 1
                 else:
                     if not self.deposite_finished:
                         self.lock.acquire()
                     self.syncprint('Запрос отклонён, недостаточно средств')
+                i += 1
             sleep(0.001)
 
 
