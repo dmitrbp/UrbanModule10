@@ -18,7 +18,6 @@ class Bank:
 
     def deposit(self):
         for i in range(100):
-            # with self.sync:
             topup = randint(50, 500)
             self.balance += topup
             if self.balance >= 500 and self.lock.locked():
